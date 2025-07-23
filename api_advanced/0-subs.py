@@ -15,10 +15,8 @@ def number_of_subscribers(subreddit):
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {'User-Agent': 'laptop:Mysubsapi/1.0.0 (by /u/NewsSuper8309)'}
     
-    # Making the request without following redirects
     response = requests.get(url, headers=headers, allow_redirects=False)
     
-    # Check if the request was successful
     if response.status_code == 200:
         return response.json()['data']['subscribers']
     else:
@@ -26,4 +24,3 @@ def number_of_subscribers(subreddit):
 
 if __name__ == "__main__":
     print(number_of_subscribers("python"))
-
