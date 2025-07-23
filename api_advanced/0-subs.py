@@ -6,8 +6,11 @@ def number_of_subscribers(subreddit):
     """
     Returns the number of subscribers for a given subreddit.
     
-    :param subreddit: The name of the subreddit (without the 'r/' prefix).
-    :return: The number of subscribers if the subreddit exists, otherwise 0.
+    Parameters:
+    subreddit (str): The name of the subreddit (without the 'r/' prefix).
+    
+    Returns:
+    int: The number of subscribers if the subreddit exists, otherwise 0.
     
     This function queries the Reddit API and handles invalid subreddit names
     by returning 0. It does not follow redirects.
