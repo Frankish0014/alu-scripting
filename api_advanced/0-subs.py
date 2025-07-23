@@ -11,14 +11,12 @@ def number_of_subscribers(subreddit):
     
     Returns:
     int: The number of subscribers if the subreddit exists, otherwise 0.
-    
-    This function queries the Reddit API and handles invalid subreddit names
-    by returning 0. It does not follow redirects.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {'User-Agent': 'laptop:Mysubsapi/1.0.0 (by /u/NewsSuper8309)'}
     
-    response = requests.get(url, headers=headers)
+    # Making the request without following redirects
+    response = requests.get(url, headers=headers, allow_redirects=False)
     
     # Check if the request was successful
     if response.status_code == 200:
@@ -28,3 +26,4 @@ def number_of_subscribers(subreddit):
 
 if __name__ == "__main__":
     print(number_of_subscribers("python"))
+
