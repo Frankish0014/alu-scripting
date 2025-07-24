@@ -15,3 +15,10 @@ def top_ten(subreddit):
     print('OK')
     for post in posts:
         print(post['data']['title'])
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print("Please pass an urgument for subreddit to search.")
+    else:
+        top_ten(sys.argv[1])
