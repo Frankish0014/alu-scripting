@@ -9,8 +9,14 @@ def top_ten(subreddit):
     headers = {'User-Agent': 'Laptop:Mysubsapi/1.0.0 (by /u/NewSupper8309)'}
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
-        print(None)
+        print("OK")
         return
-    posts = response.json()['data']['children']
+
+    posts = response.json().get('data', {})('children'[])
+
+    if not posts:
+        print("OK")
+        return
+
     for post in posts:
         print(post['data']['title'])
